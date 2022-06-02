@@ -14,32 +14,33 @@ public enum WeaponKind
 }
 public class WeaponSet : MonoBehaviour
 {
+
     private void Update()
     {
         string input = Input.inputString;
         switch (input)
         {
             case "1":
-                SetWeapon(WeaponKind.SWORD);
+                SetWeapon(1);
                 break;
             case "2":
-                SetWeapon(WeaponKind.RIFLE);
+                SetWeapon(2);
                 break;
             case "3":
-                SetWeapon(WeaponKind.SNIPER);
+                SetWeapon(3);
                 break;
             case "4":
-                SetWeapon(WeaponKind.SHOTGUN);
+                SetWeapon(4);
                 break;
             case "5":
-                SetWeapon(WeaponKind.GRANADE);
+                SetWeapon(5);
                 break;
             default:
                 return;
         }
     }
-    void SetWeapon(WeaponKind WK)
+    void SetWeapon(int _keyValue)
     {
-        
+
     }
 }
