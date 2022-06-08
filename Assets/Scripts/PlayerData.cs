@@ -38,8 +38,8 @@ public class PlayerData : WeaponSet
     private float atk;
     public float ATK
     {
-        get { return mp; }
-        set { mp = value; }
+        get { return atk; }
+        set { atk = value; }
     }
     private float cooltime;
 

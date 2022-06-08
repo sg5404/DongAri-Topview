@@ -7,6 +7,7 @@ using System.Linq;
 public class PlayerCtrl : MonoBehaviour
 {
     Rigidbody2D rigid;
+    private WeaponSet weaponSet = null;
 
     [SerializeField]
     Image Main_Weapon;
@@ -17,9 +18,11 @@ public class PlayerCtrl : MonoBehaviour
 
     GameObject nearObject;
 
+
     void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
+        weaponSet = GetComponent<WeaponSet>();
     }
 
     // Update is called once per frame
@@ -29,6 +32,7 @@ public class PlayerCtrl : MonoBehaviour
         float v = Input.GetAxisRaw("Vertical") * speed;
         rigid.velocity = new Vector2(h, v);
         WeaponEquip();
+        WeaponChange();
     }
 
     private void WeaponEquip()
@@ -38,6 +42,35 @@ public class PlayerCtrl : MonoBehaviour
             Debug.Log("Click");
             Main_Weapon.sprite = nearObject.GetComponent<SpriteRenderer>().sprite;
             nearObject.SetActive(false);
+        }
+    }
+
+    private void WeaponChange()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            weaponSet.SubWeaponState = weaponSet.SetWeapon("1");
+            Debug.Log(weaponSet.SubWeaponState);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            weaponSet.SubWeaponState = weaponSet.SetWeapon("2");
+            Debug.Log(weaponSet.SubWeaponState);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            weaponSet.SubWeaponState = weaponSet.SetWeapon("3");
+            Debug.Log(weaponSet.SubWeaponState);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            weaponSet.SubWeaponState = weaponSet.SetWeapon("4");
+            Debug.Log(weaponSet.SubWeaponState);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            weaponSet.SubWeaponState = weaponSet.SetWeapon("5");
+            Debug.Log(weaponSet.SubWeaponState);
         }
     }
 
