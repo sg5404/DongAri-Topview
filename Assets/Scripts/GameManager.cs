@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
+    public Transform Playertransform;
+
     private static GameManager instance;
 
     public static GameManager GetInstance()
