@@ -11,7 +11,7 @@ public class PlayerData : WeaponSet
         ATK,
         COOLTIME,
         AMMO,
-        MAX_AMMO,
+        MAXAMMO,
         CRITCHANCE,
         CRITDMG,
         MOVESPEED,
@@ -20,6 +20,7 @@ public class PlayerData : WeaponSet
         LIFEDRAIN
     }
     private int hp;
+    private int maxHp;
     public int HP
     {
         get { return hp; }
@@ -29,20 +30,19 @@ public class PlayerData : WeaponSet
             if (hp <= 0) { isDead = true; }
         }
     }
+    public int MaxHp
+    {
+        get { return maxHp; }
+        set
+        {
+            maxHp = value;
+            if (maxHp <= 0) { isDead = true; }
+        }
+    }
     private int mp;
-    public int MP
-    {
-        get { return mp; }
-        set { mp = value; }
-    }
     private float atk;
-    public float ATK
-    {
-        get { return mp; }
-        set { mp = value; }
-    }
+    private int def;
     private float cooltime;
-
     private int ammo;
     private int max_ammo;
 
@@ -52,7 +52,60 @@ public class PlayerData : WeaponSet
     private float atk_speed;
 
     private int gold;
-    private int life_drain;
+    public int Gold
+    {
+        get { return gold; }
+        set
+        {
+            if (value <= 0)
+            {
+                buyAble = false;
+            }
+        }
 
-    private bool isDead;
+    }
+    private float life_drain;
+
+    private bool isDead = false;
+    private bool buyAble = true;
+
+    void SetValue(float _value, DataState _setData)
+    {
+        switch (_setData)
+        {
+            case DataState.HP:
+                HP = (int)_value;
+                break;
+            case DataState.ATK:
+                atk = _value;
+                break;
+            case DataState.COOLTIME:
+                cooltime = _value;
+                break;
+            case DataState.AMMO:
+                ammo = (int)_value;
+                break;
+            case DataState.MAXAMMO:
+                max_ammo = (int)_value;
+                break;
+            case DataState.CRITCHANCE:
+                critical_chance = _value;
+                break;
+            case DataState.CRITDMG:
+                critical_dmg = _value;
+                break;
+            case DataState.MOVESPEED:
+                move_speed = _value;
+                break;
+            case DataState.ATKSPEED:
+                atk_speed = _value;
+                break;
+            case DataState.GOLD:
+                Gold = (int)_value;
+                break;
+            case DataState.LIFEDRAIN:
+                life_drain = _value;
+                break;
+        }
+    }
 }
