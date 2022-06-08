@@ -1,5 +1,6 @@
 using System;
-public class WeaponSet
+using UnityEngine;
+public class WeaponSet : MonoBehaviour
 {
    public WeaponSet()
     {
@@ -44,8 +45,10 @@ public class WeaponSet
             }
         }
     }
-    WeaponKind SetWeapon(string _input, WeaponKind _weaponKind)
+    public WeaponKind SetWeapon(string _input)
     {
+        WeaponKind _weaponKind = subWeaponState;
+
         switch (_input)
         {
             case "1":
