@@ -1,25 +1,58 @@
-    using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerData : WeaponSet
 {
-    int hp;
-    int mp;
-    float atk;
-    float cooltime;
+    enum DataState
+    {
+        HP,
+        MP,
+        ATK,
+        COOLTIME,
+        AMMO,
+        MAX_AMMO,
+        CRITCHANCE,
+        CRITDMG,
+        MOVESPEED,
+        ATKSPEED,
+        GOLD,
+        LIFEDRAIN
+    }
+    private int hp;
+    public int HP
+    {
+        get { return hp; }
+        set
+        {
+            hp = value;
+            if (hp <= 0) { isDead = true; }
+        }
+    }
+    private int mp;
+    public int MP
+    {
+        get { return mp; }
+        set { mp = value; }
+    }
+    private float atk;
+    public float ATK
+    {
+        get { return mp; }
+        set { mp = value; }
+    }
+    private float cooltime;
 
-    int ammo;
-    int max_ammo;
+    private int ammo;
+    private int max_ammo;
 
-    float critical_chance;
-    float critical_dmg;
-    float move_speed;
-    float atk_speed;
+    private float critical_chance;
+    private float critical_dmg;
+    private float move_speed;
+    private float atk_speed;
 
-    int gold;
-    int life_drain;
+    private int gold;
+    private int life_drain;
 
-    WeaponKind mainWeaponState = WeaponKind.SWORD;
-    WeaponKind subWeaponState = WeaponKind.RIFLE;
+    private bool isDead;
 }

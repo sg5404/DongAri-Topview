@@ -1,40 +1,71 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public enum WeaponKind
-{
-    SWORD = 0,
-    RIFLE,
-    SNIPER,
-    SHOTGUN,
-    GRANADE
-}
+using System;
 public class WeaponSet
 {
-    WeaponKind mainWeaponState = 0;
-    WeaponKind subWeaponState;
-    void SetWeapon(string _input)
+   public WeaponSet()
+    {
+        MainWeaponState = WeaponKind.SWORD;
+        SubWeaponState = WeaponKind.RIFLE;
+    }
+    public enum WeaponKind
+    {
+        SWORD = 0,
+        RIFLE,
+        SNIPER,
+        SHOTGUN,
+        GRANADE
+    }
+    private WeaponKind mainWeaponState = 0;
+    private WeaponKind subWeaponState = 0;
+    public WeaponKind MainWeaponState
+    {
+        get
+        {
+            return mainWeaponState;
+        }
+        set
+        {
+            if (value >= WeaponKind.SWORD && value <= WeaponKind.GRANADE)
+            {
+                mainWeaponState = value;
+            }
+        }
+    }
+    public WeaponKind SubWeaponState
+    {
+        get
+        {
+            return subWeaponState;
+        }
+        set
+        {
+            if (value >= WeaponKind.SWORD && value <= WeaponKind.GRANADE)
+            {
+                subWeaponState = value;
+            }
+        }
+    }
+    WeaponKind SetWeapon(string _input, WeaponKind _weaponKind)
     {
         switch (_input)
         {
             case "1":
-                subWeaponState = WeaponKind.SWORD;
+                _weaponKind = WeaponKind.SWORD;
                 break;
             case "2":
-                subWeaponState = WeaponKind.RIFLE;
+                _weaponKind = WeaponKind.RIFLE;
                 break;
             case "3":
-                subWeaponState = WeaponKind.SNIPER;
+                _weaponKind = WeaponKind.SNIPER;
                 break;
             case "4":
-                subWeaponState = WeaponKind.SHOTGUN;
+                _weaponKind = WeaponKind.SHOTGUN;
                 break;
             case "5":
-                subWeaponState = WeaponKind.GRANADE;
+                _weaponKind = WeaponKind.GRANADE;
                 break;
             default:
-                return;
+                break;
         }
+        return _weaponKind;
     }
 }
