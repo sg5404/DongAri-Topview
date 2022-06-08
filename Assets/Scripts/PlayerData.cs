@@ -41,15 +41,12 @@ public class PlayerData : WeaponSet
     }
     private int mp;
     private float atk;
-<<<<<<< HEAD
     private int def;
-=======
     public float ATK
     {
         get { return atk; }
         set { atk = value; }
     }
->>>>>>> caa4f8a0d707dc2a5a80e8020d22edb8f48df420
     private float cooltime;
     private int ammo;
     private int max_ammo;
