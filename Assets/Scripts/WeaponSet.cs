@@ -1,19 +1,21 @@
 using System;
 using UnityEngine;
+
+public enum WeaponKind
+{
+    SWORD = 0,
+    RIFLE,
+    SNIPER,
+    SHOTGUN,
+    GRANADE
+}
+
 public class WeaponSet : MonoBehaviour
 {
    public WeaponSet()
     {
         MainWeaponState = WeaponKind.SWORD;
         SubWeaponState = WeaponKind.RIFLE;
-    }
-    public enum WeaponKind
-    {
-        SWORD = 0,
-        RIFLE,
-        SNIPER,
-        SHOTGUN,
-        GRANADE
     }
     private WeaponKind mainWeaponState = 0;
     private WeaponKind subWeaponState = 0;
