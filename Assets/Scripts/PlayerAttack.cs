@@ -38,23 +38,27 @@ public class PlayerAttack : MonoBehaviour
 
     IEnumerator Fire()
     {
-        if (Input.GetMouseButton(0))
+        while (true)
         {
-            switch (weaponSet.SubWeaponState) // 총알발사 가능하게끔 하기
+            if (Input.GetMouseButton(0))
             {
-                case WeaponKind.SWORD:
-                    break;
-                case WeaponKind.RIFLE:
-                    GameObject bullet = Instantiate(rifleBullet, bulletTransform);
-                    break;
-                case WeaponKind.SNIPER:
-                    break;
-                case WeaponKind.SHOTGUN:
-                    break;
-                case WeaponKind.GRANADE:
-                    break;
+                switch (weaponSet.SubWeaponState) // 총알발사 가능하게끔 하기
+                {
+                    case WeaponKind.SWORD:
+                        break;
+                    case WeaponKind.RIFLE:
+                        GameObject bullet = Instantiate(rifleBullet, bulletTransform);
+                        bullet.transform.SetParent(null);
+                        break;
+                    case WeaponKind.SNIPER:
+                        break;
+                    case WeaponKind.SHOTGUN:
+                        break;
+                    case WeaponKind.GRANADE:
+                        break;
+                }
             }
-            yield return new WaitForSeconds(0.1f);
+                yield return new WaitForSeconds(0.1f);
         }
     }
 }
