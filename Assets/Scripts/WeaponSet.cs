@@ -1,46 +1,71 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-
-
-public enum WeaponKind
+using System;
+public class WeaponSet
 {
-    SWORD = 0,
-    RIFLE,
-    SNIPER,
-    SHOTGUN,
-    GRANADE
-}
-public class WeaponSet : MonoBehaviour
-{
-
-    private void Update()
+   public WeaponSet()
     {
-        string input = Input.inputString;
-        switch (input)
+        MainWeaponState = WeaponKind.SWORD;
+        SubWeaponState = WeaponKind.RIFLE;
+    }
+    public enum WeaponKind
+    {
+        SWORD = 0,
+        RIFLE,
+        SNIPER,
+        SHOTGUN,
+        GRANADE
+    }
+    private WeaponKind mainWeaponState = 0;
+    private WeaponKind subWeaponState = 0;
+    public WeaponKind MainWeaponState
+    {
+        get
         {
-            case "1":
-                SetWeapon(1);
-                break;
-            case "2":
-                SetWeapon(2);
-                break;
-            case "3":
-                SetWeapon(3);
-                break;
-            case "4":
-                SetWeapon(4);
-                break;
-            case "5":
-                SetWeapon(5);
-                break;
-            default:
-                return;
+            return mainWeaponState;
+        }
+        set
+        {
+            if (value >= WeaponKind.SWORD && value <= WeaponKind.GRANADE)
+            {
+                mainWeaponState = value;
+            }
         }
     }
-    void SetWeapon(int _keyValue)
+    public WeaponKind SubWeaponState
     {
-
+        get
+        {
+            return subWeaponState;
+        }
+        set
+        {
+            if (value >= WeaponKind.SWORD && value <= WeaponKind.GRANADE)
+            {
+                subWeaponState = value;
+            }
+        }
+    }
+    WeaponKind SetWeapon(string _input, WeaponKind _weaponKind)
+    {
+        switch (_input)
+        {
+            case "1":
+                _weaponKind = WeaponKind.SWORD;
+                break;
+            case "2":
+                _weaponKind = WeaponKind.RIFLE;
+                break;
+            case "3":
+                _weaponKind = WeaponKind.SNIPER;
+                break;
+            case "4":
+                _weaponKind = WeaponKind.SHOTGUN;
+                break;
+            case "5":
+                _weaponKind = WeaponKind.GRANADE;
+                break;
+            default:
+                break;
+        }
+        return _weaponKind;
     }
 }
