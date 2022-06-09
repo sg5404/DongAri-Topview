@@ -65,7 +65,7 @@ public class PlayerAttack : MonoBehaviour
                 break;
             case WeaponKind.SHOTGUN:
                 weapon = 3;
-                Fire();
+                ShotGunFire();
                 break;
             case WeaponKind.GRANADE:
                 weapon = 4;
@@ -87,5 +87,23 @@ public class PlayerAttack : MonoBehaviour
 
         }
 
+    }
+
+    void ShotGunFire()
+    {
+        if (Input.GetMouseButton(0))
+        {
+            if (curtime >= module[weapon].atkSpeed)
+            {
+                for(int i = 0; i <= 8; i++)
+                {
+                    GameObject bullet = Instantiate(rifleBullet, bulletTransform);
+                    bullet.transform.Rotate(0, 0, Random.Range(-module[weapon].bulletSpread , module[weapon].bulletSpread));
+                    bullet.GetComponent<BulletMove>().bulletSpeed = Random.Range(5, 10);
+                    bullet.transform.SetParent(null);
+                }
+                    curtime = 0;
+            }
+        }
     }
 }

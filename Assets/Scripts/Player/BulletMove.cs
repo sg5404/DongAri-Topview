@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class BulletMove : MonoBehaviour
 {
-    [SerializeField]
-    private float bulletSpeed = 10f;
+    public float bulletSpeed = 10f;
+
     void Start()
     {
         

@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   kind: 3
   atk: 0
-  atkSpeed: 0
+  atkSpeed: 2
   minDmg: 0
-  bulletSpread: 0
+  bulletSpread: 40
   oneShotBullets: 0
   range: 0
   crtDmg: 0
