@@ -26,5 +26,5 @@ public class ModuleInfo : ScriptableObject
 
     public int magazine;//탄창
     public bool isInfiniteBullet;//한무 탄창
-    public float reroad;//재장전 시간
+    public float reload;//재장전 시간
 }
