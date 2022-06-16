@@ -372,6 +372,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyFlower (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2465595358495427681, guid: b0219f387040ee44c9df192ec2888852, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0219f387040ee44c9df192ec2888852, type: 3}
 --- !u!1 &413891395
@@ -794,6 +798,9 @@ GameObject:
   - component: {fileID: 1011429740}
   - component: {fileID: 1011429741}
   - component: {fileID: 1011429742}
+  - component: {fileID: 1011429745}
+  - component: {fileID: 1011429744}
+  - component: {fileID: 1011429743}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -917,6 +924,54 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 1}
   m_Direction: 0
+--- !u!114 &1011429743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011429737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4d7f9b2e98cfe84eb91a581487fe750, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1011429744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011429737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80032a75145cacf41a5f85b377ad973e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1011429745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011429737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3af347b87dd6a714a95ae4394ee4821e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rifleBullet: {fileID: 99796228922257285, guid: cae0499bd922c10429c0e812fb9d23d6, type: 3}
+  sniperBullet: {fileID: 99796228922257285, guid: 64a2decdcca301b488f42eebfaa0cfd5, type: 3}
+  shotgunBullet: {fileID: 99796228922257285, guid: 15a0422f9e162a64da3a824440294d17, type: 3}
+  granadeBullet: {fileID: 99796228922257285, guid: 0f35a0e737d72964a8569f4bf25888f9, type: 3}
+  bulletTransform: {fileID: 1011429739}
+  gunpoint: {fileID: 1011429737}
+  module:
+  - {fileID: 11400000, guid: c787610578a4d454baa5b0111ec2a1db, type: 2}
+  - {fileID: 11400000, guid: a32b6b6ddec68ea4083f71d5c94cd067, type: 2}
+  - {fileID: 11400000, guid: 594a41ffda4c11a4a84e9ed2ad6145ed, type: 2}
+  - {fileID: 11400000, guid: a2907cc1be88cd1479b3772339dd98ee, type: 2}
+  - {fileID: 11400000, guid: 521a71e8a599be048b709078ab5228b1, type: 2}
 --- !u!1 &1018842811
 GameObject:
   m_ObjectHideFlags: 0
@@ -1247,6 +1302,10 @@ PrefabInstance:
     - target: {fileID: 2465595358495427681, guid: b0219f387040ee44c9df192ec2888852, type: 3}
       propertyPath: m_Name
       value: EnemyFlower
+      objectReference: {fileID: 0}
+    - target: {fileID: 2465595358495427681, guid: b0219f387040ee44c9df192ec2888852, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 8366429180449909101, guid: b0219f387040ee44c9df192ec2888852, type: 3}
       propertyPath: tanpegim

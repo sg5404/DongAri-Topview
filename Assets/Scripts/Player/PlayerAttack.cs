@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     private WeaponSet weaponSet = null;
+    private PlayerSkills playerSkills = null;
 
     [Header("ÃÑ¾Ë")]
     [SerializeField]
@@ -21,10 +22,8 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField]
     private GameObject gunpoint = null;
 
-    [SerializeField]
-    private ModuleInfo[] module;
-    [SerializeField]
-    private int weapon = 1;
+    public ModuleInfo[] module;
+    public int weapon { private set; get; } = 1;
 
     private float cooltime = 0.1f;
     private float curtime = 0;
@@ -32,6 +31,7 @@ public class PlayerAttack : MonoBehaviour
     void Start()
     {
         weaponSet = GetComponent<WeaponSet>();
+        playerSkills = GetComponent<PlayerSkills>();
     }
 
     void Update()
@@ -46,6 +46,11 @@ public class PlayerAttack : MonoBehaviour
         bulletTransform.rotation = Quaternion.Euler(0, 0, rotation);
         gunpoint.transform.rotation = Quaternion.Euler(0, 0, rotation);
         CurrentWeapon();
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            WeaponSkills();
+        }
     }
 
     void CurrentWeapon()
@@ -105,4 +110,24 @@ public class PlayerAttack : MonoBehaviour
             }
         }
     }
+
+    void WeaponSkills()
+    {
+        switch (weaponSet.SubWeaponState)
+        {
+            case WeaponKind.SWORD:
+                break;
+            case WeaponKind.RIFLE:
+                playerSkills.Lambo();
+                break;
+            case WeaponKind.SNIPER:
+                break;
+            case WeaponKind.SHOTGUN:
+                playerSkills.MadangSslGi();
+                break;
+            case WeaponKind.GRANADE:
+                break;
+        }
+    }
+
 }
