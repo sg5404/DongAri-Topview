@@ -55,6 +55,19 @@ public class PlayerData : WeaponSet
     private float move_speed;
     private float atk_speed;
 
+    public float Atk_Speed
+    {
+        get { return atk_speed; }
+        set
+        {
+            atk_speed = value;
+            if(value <= 0)
+            {
+                atk_speed = 0;
+            }
+        }
+    }
+
     private int gold;
     public int Gold
     {
