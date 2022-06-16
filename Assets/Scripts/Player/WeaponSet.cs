@@ -1,18 +1,21 @@
 using System;
-public class WeaponSet
+using UnityEngine;
+
+public enum WeaponKind
+{
+    SWORD = 0,
+    RIFLE,
+    SNIPER,
+    SHOTGUN,
+    GRANADE
+}
+
+public class WeaponSet : MonoBehaviour
 {
    public WeaponSet()
     {
         MainWeaponState = WeaponKind.SWORD;
         SubWeaponState = WeaponKind.RIFLE;
-    }
-    public enum WeaponKind
-    {
-        SWORD = 0,
-        RIFLE,
-        SNIPER,
-        SHOTGUN,
-        GRANADE
     }
     private WeaponKind mainWeaponState = 0;
     private WeaponKind subWeaponState = 0;
@@ -44,8 +47,10 @@ public class WeaponSet
             }
         }
     }
-    WeaponKind SetWeapon(string _input, WeaponKind _weaponKind)
+    public WeaponKind SetWeapon(string _input)
     {
+        WeaponKind _weaponKind = subWeaponState;
+
         switch (_input)
         {
             case "1":
