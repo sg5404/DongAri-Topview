@@ -13,6 +13,18 @@ public class Enemyflower : MonoBehaviour
 {
     public flwerEnemyType flowertype;
 
+
+
+    [SerializeField]
+    private int shotgunBullet;
+
+    private int bulletAmount;
+
+    [SerializeField]
+    private float tanpegim;
+
+    private float addfloat;
+
     [SerializeField]
     private int maxBullets;
 
@@ -44,12 +56,30 @@ public class Enemyflower : MonoBehaviour
         GameObject _bullet = GetBulletinPool();
         targetDir = (GameManager.GetInstance().Playertransform.position - transform.position);
         //Debug.DrawRay(gameObject.transform.position, targetDir*100, Color.green,10);
-        float angle = Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg;
-        //print(angle);
-        Quaternion angleAxis = Quaternion.AngleAxis(angle, Vector3.forward);
-        //print(angleAxis);
-        _bullet?.transform.SetPositionAndRotation(this.gameObject.transform.position, angleAxis);
-        _bullet.SetActive(true);
+        switch(flowertype)
+        {
+            case flwerEnemyType.rifle:
+                addfloat = Random.Range(-tanpegim, tanpegim);
+                bulletAmount = 1;
+                break;
+            case flwerEnemyType.sniper:
+                addfloat = 0;
+                bulletAmount = 1;
+                break;
+            case flwerEnemyType.shotgun:
+                bulletAmount = shotgunBullet;
+                break;
+            default:
+                break;
+        }
+
+        for(int i = 0; i < bulletAmount; i++)
+        {
+            float angle = Mathf.Atan2(targetDir.y, targetDir.x) * Mathf.Rad2Deg + addfloat;
+            Quaternion angleAxis = Quaternion.AngleAxis(angle, Vector3.forward);
+            _bullet?.transform.SetPositionAndRotation(this.gameObject.transform.position, angleAxis);
+            _bullet.SetActive(true);
+        }
     }
 
     void CreateBulletPool()
