@@ -36,7 +36,6 @@ public class PlayerData : WeaponSet
         set
         {
             maxHp = value;
-            if (maxHp <= 0) { isDead = true; }
         }
     }
     private int mp;
