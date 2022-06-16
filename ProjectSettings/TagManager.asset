@@ -5,7 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Weapon
+<<<<<<< Updated upstream
   - Enemy
+=======
+  - Bullet
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX

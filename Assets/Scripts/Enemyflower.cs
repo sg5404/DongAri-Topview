@@ -13,7 +13,9 @@ public class Enemyflower : MonoBehaviour
 {
     public flwerEnemyType flowertype;
 
-
+    [SerializeField]
+    private EnemyModule stat;
+    private int hp;
 
     [SerializeField]
     private int shotgunBullet;
@@ -40,8 +42,9 @@ public class Enemyflower : MonoBehaviour
 
     void Start()
     {
+        hp = stat.maxHp;
         CreateBulletPool();
-        InvokeRepeating("CreateBullet", 2.0f, createTime);
+        InvokeRepeating("CreateBullet", 2.0f, stat.shootSpeed);
     }
 
     // Update is called once per frame
@@ -106,5 +109,33 @@ public class Enemyflower : MonoBehaviour
             }
         }
         return null;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Bullet"))
+        {
+            BulletModule bulletHit = collision.GetComponent<BulletMove>().bulletStat;
+            float crit = Random.value;
+            Debug.Log(crit);
+            hp -= bulletHit.atk;
+            DeadCheck();
+            if (crit<bulletHit.crtChance)
+            {
+                hp -= bulletHit.atk;
+                DeadCheck();
+                return;
+            }
+            Destroy(collision.gameObject);
+        }
+    }
+
+    private void DeadCheck()
+    {
+        if (hp <= 0)
+        {
+            CancelInvoke("CreateBullet");
+            gameObject.SetActive(false);
+        }
     }
 }
