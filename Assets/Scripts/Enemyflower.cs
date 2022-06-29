@@ -36,6 +36,9 @@ public class Enemyflower : MonoBehaviour
     [SerializeField]
     private float createTime = 1.0f;
 
+    [SerializeField]
+    private GameObject bulletPoolObject;
+
     public List<GameObject> bulletPool = new List<GameObject>();
 
     Vector2 targetDir;
@@ -82,6 +85,7 @@ public class Enemyflower : MonoBehaviour
             Quaternion angleAxis = Quaternion.AngleAxis(angle, Vector3.forward);
             _bullet?.transform.SetPositionAndRotation(this.gameObject.transform.position, angleAxis);
             _bullet.SetActive(true);
+            _bullet.transform.SetParent(null);
         }
     }
 
@@ -96,6 +100,8 @@ public class Enemyflower : MonoBehaviour
             _bullet.SetActive(false);
 
             bulletPool.Add(_bullet);
+
+            _bullet.transform.SetParent(bulletPoolObject.transform);
         }
     }
 
@@ -117,7 +123,7 @@ public class Enemyflower : MonoBehaviour
         {
             BulletModule bulletHit = collision.GetComponent<BulletMove>().bulletStat;
             float crit = Random.value;
-            Debug.Log(crit);
+            //Debug.Log(crit);
             hp -= bulletHit.atk;
             DeadCheck();
             if (crit<bulletHit.crtChance)
