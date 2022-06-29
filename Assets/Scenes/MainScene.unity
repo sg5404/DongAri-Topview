@@ -406,6 +406,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 7455556790953968473, guid: b0219f387040ee44c9df192ec2888852, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7455556790953968473, guid: b0219f387040ee44c9df192ec2888852, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8366429180449909101, guid: b0219f387040ee44c9df192ec2888852, type: 3}
       propertyPath: bulletPoolObject
       value: 
@@ -1340,6 +1348,14 @@ PrefabInstance:
     - target: {fileID: 2465595358495427681, guid: b0219f387040ee44c9df192ec2888852, type: 3}
       propertyPath: m_TagString
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7455556790953968473, guid: b0219f387040ee44c9df192ec2888852, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7455556790953968473, guid: b0219f387040ee44c9df192ec2888852, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8366429180449909101, guid: b0219f387040ee44c9df192ec2888852, type: 3}
       propertyPath: tanpegim

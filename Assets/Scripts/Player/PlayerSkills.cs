@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class PlayerSkills : MonoBehaviour
 {
@@ -9,9 +10,10 @@ public class PlayerSkills : MonoBehaviour
     private PlayerData playerData = null;
     private PlayerAttack playerAttack = null;
 
-    private List<GameObject> enemyObject;
+    private List<GameObject> enemyObject = new List<GameObject>();
 
     private Rigidbody2D rb = null;
+
 
     private void Awake()
     {
@@ -45,9 +47,10 @@ public class PlayerSkills : MonoBehaviour
                 rb = enemyItem.GetComponent<Rigidbody2D>();
                 Vector3 reactVec = enemyItem.transform.position - transform.position;
                 reactVec = reactVec.normalized;
-                enemyItem.transform.position += reactVec * 5;
-                //rb.velocity = reactVec * 10;
-                rb.AddForce(reactVec * 5, ForceMode2D.Impulse);
+                //enemyItem.transform.position += reactVec * 5;
+                enemyItem.transform.DOMove(enemyItem.transform.position + (reactVec * 5f), 0.5f);
+                //rb.velocity = reactVec * 5;
+                //rb.AddForce(reactVec * 5, ForceMode2D.Impulse);
                 Debug.Log(reactVec);
                 Debug.Log("³Ë¹é");
             }
