@@ -85,7 +85,7 @@ public class Enemyflower : MonoBehaviour
             Quaternion angleAxis = Quaternion.AngleAxis(angle, Vector3.forward);
             _bullet?.transform.SetPositionAndRotation(this.gameObject.transform.position, angleAxis);
             _bullet.SetActive(true);
-            _bullet.transform.SetParent(null);
+            //_bullet.transform.SetParent(null);
         }
     }
 
