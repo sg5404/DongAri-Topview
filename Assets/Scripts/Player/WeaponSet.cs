@@ -1,15 +1,6 @@
 using System;
 using UnityEngine;
 
-public enum WeaponKind
-{
-    SWORD = 0,
-    RIFLE,
-    SNIPER,
-    SHOTGUN,
-    GRANADE
-}
-
 public class WeaponSet : MonoBehaviour
 {
    public WeaponSet()

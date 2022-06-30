@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName ="SO/Module/Weapon")]
-public class ModuleInfo : ScriptableObject
+public class WeaponModule : ScriptableObject
 {
     public WeaponKind kind;//무기종류
     public float atkSpeed;//공속

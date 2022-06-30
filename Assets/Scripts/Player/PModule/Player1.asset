@@ -9,14 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66490689f407f1e45ada03f6449d47bf, type: 3}
-  m_Name: SniperBullet
+  m_Script: {fileID: 11500000, guid: 474e934e6bd0bf845b5a5506f7f10ae5, type: 3}
+  m_Name: Player1
   m_EditorClassIdentifier: 
-  atk: 33
-  range: 0
-  crtDmg: 0
-  crtChance: 0.7
-  isExplosion: 0
-  explosionRange: 0
-  isKnockBack: 0
-  knockBackRange: 0
+  HP: 100
+  MP: 100
+  ammo: 100
+  atk: 5
+  def: 3
+  criticalChance: 20
+  criticalDamage: 2
+  moveSpeed: 1
+  attackSpeed: 1

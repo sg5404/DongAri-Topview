@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8366429180449909101}
   - component: {fileID: 4626123278553421471}
   - component: {fileID: 7455556790953968473}
+  - component: {fileID: 1020491222142206993}
   m_Layer: 0
   m_Name: EnemyFlower
   m_TagString: Untagged
@@ -104,6 +105,7 @@ MonoBehaviour:
   maxBullets: 100
   bullet: {fileID: 4283388534896220500, guid: d84b45fa04956a742be164b0705b9e77, type: 3}
   createTime: 1
+  bulletPoolObject: {fileID: 0}
   bulletPool: []
 --- !u!61 &4626123278553421471
 BoxCollider2D:
@@ -152,3 +154,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1020491222142206993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2465595358495427681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe6c5e5083d02944a99b17564c4280df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyModule: {fileID: 11400000, guid: 681c52374d64fd4409627369f248a608, type: 2}
+  _hp: 0
+  <OnDie>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
+  <OnGetHit>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []

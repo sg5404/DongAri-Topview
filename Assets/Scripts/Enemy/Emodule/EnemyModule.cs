@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemyModule : ScriptableObject
 {
     public int maxHp;
+    public float def;
     public float moveSpeed;
     public float shootSpeed;
     public float chaseDistance;

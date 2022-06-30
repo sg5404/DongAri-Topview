@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 3219892325750782928}
   - component: {fileID: 369060281423655248}
-  - component: {fileID: 637073285914739510}
   - component: {fileID: 1778688723553902710}
+  - component: {fileID: -5721248642610469796}
   m_Layer: 0
   m_Name: Bullet_Flower
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,19 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &637073285914739510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4283388534896220500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53b7f8833e8c718488f7b0eb85636370, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
 --- !u!58 &1778688723553902710
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -113,3 +100,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &-5721248642610469796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4283388534896220500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ab63243ae2f2714d91bd12ec1e54586, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletModule: {fileID: 11400000, guid: 184715c83b497cc4d8d10cf2f5f0e1a5, type: 2}
+  damage: 1
