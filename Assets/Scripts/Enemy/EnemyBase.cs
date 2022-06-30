@@ -59,7 +59,7 @@ public class EnemyBase : MonoBehaviour, CharBase
     }
     #endregion
     #region 적 수치
-    private StatusAilments _statusAilment;
+    public StatusAilments _statusAilment;
     #endregion
 
     [field:SerializeField] public UnityEvent OnDie { get; set; }
@@ -77,5 +77,11 @@ public class EnemyBase : MonoBehaviour, CharBase
             Debug.Log($"{gameObject.name}이 죽었음미다");
             IsDead = true;
         }
+    }
+
+    public void Stun()
+    {
+        _statusAilment = StatusAilments.Stun;
+        Debug.Log("으앙 스턴");
     }
 }

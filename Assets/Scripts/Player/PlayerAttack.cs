@@ -126,6 +126,7 @@ public class PlayerAttack : MonoBehaviour
                 playerSkills.MadangSslGi();
                 break;
             case WeaponKind.GRANADE:
+                playerSkills.Stun();
                 break;
         }
     }

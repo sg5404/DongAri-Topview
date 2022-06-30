@@ -12,6 +12,9 @@ public class PlayerSkills : MonoBehaviour
 
     private List<GameObject> enemyObject = new List<GameObject>();
 
+    [SerializeField]
+    private GameObject stunGranade;
+
     private Rigidbody2D rb = null;
 
 
@@ -56,7 +59,15 @@ public class PlayerSkills : MonoBehaviour
             }
 
         }
-
         playerAttack.module[playerAttack.weapon].magazine = 8;
+    }
+
+    public void Stun()
+    {
+        Debug.Log("Stun On");
+
+        GameObject stun = Instantiate(stunGranade, transform.position, transform.rotation);
+        stun.transform.SetParent(null);
+        stun.transform.DOMove(stun.transform.position + (stun.transform.right * 2f), 0.75f);
     }
 }
