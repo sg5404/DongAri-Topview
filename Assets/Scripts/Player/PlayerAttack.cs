@@ -22,7 +22,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField]
     private GameObject gunpoint = null;
 
-    public ModuleInfo[] module;
+    public WeaponModule[] module;
     public int weapon { private set; get; } = 1;
 
     private float cooltime = 0.1f;
@@ -103,7 +103,7 @@ public class PlayerAttack : MonoBehaviour
                 {
                     GameObject bullet = Instantiate(rifleBullet, bulletTransform);
                     bullet.transform.Rotate(0, 0, Random.Range(-module[weapon].bulletSpread , module[weapon].bulletSpread));
-                    bullet.GetComponent<BulletMove>().bulletSpeed = Random.Range(5, 10);
+                    //bullet.GetComponent<BulletMove>(). = Random.Range(5, 10);
                     bullet.transform.SetParent(null);
                 }
                     curtime = 0;

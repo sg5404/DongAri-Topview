@@ -7,7 +7,7 @@ public class PlayerSkills : MonoBehaviour
 {
     private float curDelay = 0f;
 
-    private PlayerData playerData = null;
+    private PlayerBase playerData = null;
     private PlayerAttack playerAttack = null;
 
     private List<GameObject> enemyObject = new List<GameObject>();
@@ -17,7 +17,7 @@ public class PlayerSkills : MonoBehaviour
 
     private void Awake()
     {
-        playerData = GetComponent<PlayerData>();
+        playerData = GetComponent<PlayerBase>();
         playerAttack = GetComponent<PlayerAttack>();
     }
 
@@ -28,7 +28,7 @@ public class PlayerSkills : MonoBehaviour
         playerAttack.module[playerAttack.weapon].isInfiniteBullet = true;
         while (curDelay <= 15f)
         {
-            playerData.Atk_Speed += (playerData.Atk_Speed * 0.3f);
+            //playerData.Atk_Speed += (playerData.Atk_Speed * 0.3f);
             curDelay += Time.deltaTime;
         }
 

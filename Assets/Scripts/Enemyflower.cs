@@ -121,7 +121,7 @@ public class Enemyflower : MonoBehaviour
     {
         if(collision.CompareTag("Bullet"))
         {
-            BulletModule bulletHit = collision.GetComponent<BulletMove>().bulletStat;
+            /*BulletModule bulletHit = collision.GetComponent<BulletMove>().bulletStat;
             float crit = Random.value;
             //Debug.Log(crit);
             hp -= bulletHit.atk;
@@ -132,7 +132,7 @@ public class Enemyflower : MonoBehaviour
                 DeadCheck();
                 return;
             }
-            Destroy(collision.gameObject);
+            Destroy(collision.gameObject);*/
         }
     }
 
