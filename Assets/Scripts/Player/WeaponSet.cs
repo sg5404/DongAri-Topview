@@ -17,8 +17,8 @@ public class WeaponSet : MonoBehaviour
         MainWeaponState = WeaponKind.SWORD;
         SubWeaponState = WeaponKind.RIFLE;
     }
-    private WeaponKind mainWeaponState = 0;
-    private WeaponKind subWeaponState = 0;
+    private WeaponKind mainWeaponState = 0; // 고정된 무기(왼팔)
+    private WeaponKind subWeaponState = 0; // 변경가능 무기(오른팔)
     public WeaponKind MainWeaponState
     {
         get
