@@ -12,7 +12,7 @@ public enum flwerEnemyType
 public class Enemyflower : MonoBehaviour
 {
     public flwerEnemyType flowertype;
-
+    private EnemyBase _enemyBase;
     [SerializeField]
     private EnemyModule stat;
     private int hp;
@@ -47,6 +47,7 @@ public class Enemyflower : MonoBehaviour
     {
         hp = stat.maxHp;
         CreateBulletPool();
+        _enemyBase = GetComponent<EnemyBase>();
         InvokeRepeating("CreateBullet", 2.0f, stat.shootSpeed);
     }
 
@@ -58,7 +59,7 @@ public class Enemyflower : MonoBehaviour
 
     void CreateBullet()
     {
-
+        if (_enemyBase._statusAilment == StatusAilments.Stun) return;
         GameObject _bullet = GetBulletinPool();
         targetDir = (GameManager.GetInstance().Playertransform.position - transform.position);
         //Debug.DrawRay(gameObject.transform.position, targetDir*100, Color.green,10);

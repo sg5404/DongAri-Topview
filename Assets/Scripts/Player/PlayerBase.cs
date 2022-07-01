@@ -30,13 +30,6 @@ public class PlayerBase : MonoBehaviour, CharBase
         set { _moveSpeed = (value + _playerModule.moveSpeed); }
     }
 
-    private bool[] _statusAilments;
-    public bool[] this[int i]
-    {
-        get => _statusAilments;
-        set { _statusAilments = value; }
-    }
-
     private bool _canAilments;
     public bool CanAilments
     {
@@ -58,12 +51,30 @@ public class PlayerBase : MonoBehaviour, CharBase
         set { _isDead = value; }
     }
     #endregion
+    #region 적 수치
+    public StatusAilments _statusAilment;
+    #endregion
 
     [field: SerializeField] public UnityEvent OnDie { get; set; }
     [field: SerializeField] public UnityEvent OnGetHit { get; set; }
 
+    private void Start()
+    {
+        Hp = _playerModule.HP;
+        Def = _playerModule.def;
+        MoveSpeed = _playerModule.moveSpeed;
+    }
     public void Hit(int damage, GameObject damageDealer, StatusAilments status, float chance)
     {
-        Debug.Log("플레이어가 얻어맞았습니다.");
+        if (IsDead) return;
+        Hp -= damage;
+        OnGetHit?.Invoke();
+        _statusAilment = status;
+        if (Hp <= 0)
+        {
+            OnDie?.Invoke();
+            Debug.Log($"플레이어 사망!");
+            IsDead = true;
+        }
     }
 }

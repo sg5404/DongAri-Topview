@@ -19,7 +19,6 @@ public class BulletMove : Bullet
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(IsEnemy);
         if (collision.CompareTag("Bullet")) return;
         CharBase hit = collision.GetComponent<CharBase>();
         if (hit.IsEnemy == IsEnemy) return;

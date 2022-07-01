@@ -68,6 +68,6 @@ public class PlayerSkills : MonoBehaviour
 
         GameObject stun = Instantiate(stunGranade, transform.position, transform.rotation);
         stun.transform.SetParent(null);
-        stun.transform.DOMove(stun.transform.position + (stun.transform.right * 2f), 0.75f);
+        stun.transform.DOMove(stun.transform.position + (stun.transform.right * 2.5f), 0.75f);
     }
 }

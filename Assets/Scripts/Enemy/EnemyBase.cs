@@ -30,13 +30,6 @@ public class EnemyBase : MonoBehaviour, CharBase
         set { _moveSpeed = (value + _enemyModule.moveSpeed); }
     }
 
-    private bool[] _statusAilments;
-    public bool[] this[int i]
-    {
-        get => _statusAilments;
-        set { _statusAilments = value; }
-    }
-
     private bool _canAilments;
     public bool CanAilments
     {
@@ -70,7 +63,8 @@ public class EnemyBase : MonoBehaviour, CharBase
         if (IsDead) return;
         Hp -= damage;
         OnGetHit?.Invoke();
-        _statusAilment = status;
+        if(_statusAilment==StatusAilments.None)
+            _statusAilment = status;
         if (Hp <= 0)
         {
             OnDie?.Invoke();

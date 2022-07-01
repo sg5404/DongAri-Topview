@@ -168,6 +168,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyModule: {fileID: 11400000, guid: 681c52374d64fd4409627369f248a608, type: 2}
   _hp: 0
+  _isEnemy: 1
+  _statusAilment: 0
   <OnDie>k__BackingField:
     m_PersistentCalls:
       m_Calls: []

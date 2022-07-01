@@ -26,7 +26,7 @@ public class StunGranade : Bullet
             circle.radius += _bulletModule.explosionRange / exploseTime * Time.deltaTime;
         }
         Debug.Log("Æã");
-        if (inside.Count <= 0)
+        if (inside.Count <= 0) yield break;
         foreach (EnemyBase enemy in inside)
         {
             enemy.Stun();
