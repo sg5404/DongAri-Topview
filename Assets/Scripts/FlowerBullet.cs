@@ -31,12 +31,6 @@ public class FlowerBullet : MonoBehaviour
         }
     }
 
-    private IEnumerator wait(float time)
-    {
-        yield return new WaitForSeconds(time);
-        this.gameObject.SetActive(false);
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Player"))

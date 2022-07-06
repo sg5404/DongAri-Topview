@@ -76,6 +76,9 @@ public class PlayerAttack : MonoBehaviour
                 weapon = 4;
                 Fire();
                 break;
+            default:
+                break;
+                
         }
     }
 
