@@ -2355,6 +2355,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1020491222142206993, guid: b0219f387040ee44c9df192ec2888852, type: 3}
+      propertyPath: statusAilment.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2465595358495427681, guid: b0219f387040ee44c9df192ec2888852, type: 3}
       propertyPath: m_Name
       value: EnemyFlower (1)
@@ -9977,6 +9981,10 @@ PrefabInstance:
     - target: {fileID: 748957152154106228, guid: b0219f387040ee44c9df192ec2888852, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1020491222142206993, guid: b0219f387040ee44c9df192ec2888852, type: 3}
+      propertyPath: statusAilment.Array.size
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2465595358495427681, guid: b0219f387040ee44c9df192ec2888852, type: 3}
       propertyPath: m_Name

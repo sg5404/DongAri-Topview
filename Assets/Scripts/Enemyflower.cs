@@ -59,7 +59,7 @@ public class Enemyflower : MonoBehaviour
 
     void CreateBullet()
     {
-        if (_enemyBase._statusAilment == StatusAilments.Stun) return;
+        if (_enemyBase.statusAilment[(int)StatusAilments.Stun]) return;
         GameObject _bullet = GetBulletinPool();
         targetDir = (GameManager.GetInstance().Playertransform.position - transform.position);
         //Debug.DrawRay(gameObject.transform.position, targetDir*100, Color.green,10);

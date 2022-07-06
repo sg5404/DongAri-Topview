@@ -19,7 +19,7 @@ public class BulletMove : Bullet
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Bullet")) return;
+        if (collision.CompareTag("Bullet")|| collision.CompareTag("Weapon")) return;
         CharBase hit = collision.GetComponent<CharBase>();
         if (hit.IsEnemy == IsEnemy) return;
         hit.Hit(_bulletModule.atk, gameObject, _bulletModule.statusAilment, _bulletModule.saChance);
