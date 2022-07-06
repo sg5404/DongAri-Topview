@@ -52,19 +52,26 @@ public class EnemyBase : MonoBehaviour, CharBase
     }
     #endregion
     #region 적 수치
-    public StatusAilments _statusAilment;
+    public bool[] statusAilment = new bool[4];
+    protected float stunDuration;
+    protected float slowDuration;
+    protected float burnDuration;
     #endregion
 
     [field:SerializeField] public UnityEvent OnDie { get; set; }
     [field:SerializeField] public UnityEvent OnGetHit { get; set; }
+
+    private void Update()
+    {
+        DurationChange();
+    }
 
     public virtual void Hit(int damage, GameObject damageDealer, StatusAilments status, float chance)
     {
         if (IsDead) return;
         Hp -= damage;
         OnGetHit?.Invoke();
-        if(_statusAilment==StatusAilments.None)
-            _statusAilment = status;
+        statusAilment[(int)status] = true;
         if (Hp <= 0)
         {
             OnDie?.Invoke();
@@ -73,9 +80,33 @@ public class EnemyBase : MonoBehaviour, CharBase
         }
     }
 
-    public void Stun()
+    public void Stun(float stunTime)
     {
-        _statusAilment = StatusAilments.Stun;
+        if (stunDuration <= stunTime)
+            stunDuration = stunTime;
+        statusAilment[(int)StatusAilments.Stun] = true;
         Debug.Log("으앙 스턴");
+    }
+
+    private void DurationChange()
+    {
+        stunDuration -= Time.deltaTime;
+        slowDuration -= Time.deltaTime;
+        burnDuration -= Time.deltaTime;
+        if (stunDuration < 0)
+        {
+            stunDuration = 0;
+            statusAilment[(int)StatusAilments.Stun] = false;
+        }
+        if (slowDuration < 0)
+        {
+            slowDuration = 0;
+            statusAilment[(int)StatusAilments.Slow] = false;
+        }
+        if (burnDuration < 0)
+        {
+            burnDuration = 0;
+            statusAilment[(int)StatusAilments.Burn] = false;
+        }
     }
 }
