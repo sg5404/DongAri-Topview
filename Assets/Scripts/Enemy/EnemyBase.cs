@@ -30,13 +30,6 @@ public class EnemyBase : MonoBehaviour, CharBase
         set { _moveSpeed = (value + _enemyModule.moveSpeed); }
     }
 
-    private bool[] _statusAilments;
-    public bool[] this[int i]
-    {
-        get => _statusAilments;
-        set { _statusAilments = value; }
-    }
-
     private bool _canAilments;
     public bool CanAilments
     {
@@ -59,7 +52,7 @@ public class EnemyBase : MonoBehaviour, CharBase
     }
     #endregion
     #region 적 수치
-    private StatusAilments _statusAilment;
+    public StatusAilments _statusAilment;
     #endregion
 
     [field:SerializeField] public UnityEvent OnDie { get; set; }
@@ -70,12 +63,19 @@ public class EnemyBase : MonoBehaviour, CharBase
         if (IsDead) return;
         Hp -= damage;
         OnGetHit?.Invoke();
-        _statusAilment = status;
+        if(_statusAilment==StatusAilments.None)
+            _statusAilment = status;
         if (Hp <= 0)
         {
             OnDie?.Invoke();
             Debug.Log($"{gameObject.name}이 죽었음미다");
             IsDead = true;
         }
+    }
+
+    public void Stun()
+    {
+        _statusAilment = StatusAilments.Stun;
+        Debug.Log("으앙 스턴");
     }
 }
