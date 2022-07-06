@@ -1448,7 +1448,7 @@ GameObject:
   m_Component:
   - component: {fileID: 211539814}
   m_Layer: 5
-  m_Name: Buy
+  m_Name: Sell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5174,6 +5174,9 @@ MonoBehaviour:
   Content: {fileID: 524475390}
   Shop: {fileID: 672521503}
   isShop: 0
+  isSell: 0
+  buyButton: {fileID: 0}
+  sellButton: {fileID: 0}
 --- !u!1 &916791832
 GameObject:
   m_ObjectHideFlags: 0
@@ -9493,7 +9496,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1847676935}
   m_Layer: 5
-  m_Name: Sell
+  m_Name: Buy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
